@@ -1,0 +1,239 @@
+Table wallet {
+  user_id varchar [note: '关联用户ID']
+  wallet_id varchar [primary key, note: '主识别token，16进制字符']
+  wallet_currency enum() [note: '默认核算的币种']
+  last_method enum() [note: '上次使用的付款方式']
+  last_request_state enum [note: '上次使用的入金/收款方式']
+
+  // Wallet Info
+  wallet_username varchar [note: '用户名，唯一标识']
+
+  // Balances
+  balance_usd float [note: 'USD 余额']
+  balance_eur float [note: 'EUR 余额']
+  balance_cny float [note: 'CNY 余额']
+  balance_sgd float [note: 'SGD 余额']
+  balance_jpy float [note: 'JPY 余额']
+  balance_coupon float [note: '可替代平台费用的coupon余额']
+  // Add more currencies as needed...
+}
+
+
+Table credit_cards {
+  card_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  card_number varchar [note: '信用卡号']
+  expiration_date varchar [note: '信用卡有效期 (MM/YY)']
+  name varchar [note: '持卡人姓名']
+  cvv varchar [note: '卡片安全码']
+  address_line1 varchar [note: '账单地址第一行']
+  address_line2 varchar [note: '账单地址第二行']
+  city varchar [note: '城市']
+  postal_code varchar [note: '邮政编码']
+  country enum [note: '国家']
+}
+
+Table swifts {
+  swift_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account_name varchar [note: '账户名称']
+  swift_bic varchar [note: 'SWIFT/BIC 号码']
+  account_number varchar [note: '账户号码 IBAN']
+  bank_name varchar [note: '银行名称（通过BIC自动获取）']
+  bank_address varchar [note: '银行地址（通过BIC自动获取）']
+}
+
+Table sepas {
+  sepa_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account_name varchar [note: '账户名称']
+  swift_bic varchar [note: '银行识别码（BIC）']
+  account_number varchar [note: 'IBAN 号']
+  bank_name varchar [note: '银行名称（通过BIC自动获取）']
+  bank_address varchar [note: '银行地址（通过BIC自动获取）']
+
+}
+
+Table achs {
+  ach_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account_name varchar [note: '账户持有人姓名']
+  routing_number varchar [note: '银行路由号码']
+  swift_bic varchar [note: '银行识别码（BIC）']
+  account_number varchar [note: 'BAN 号']
+  bank_name varchar [note: '银行名称（通过BIC自动获取）']
+  bank_address varchar [note: '银行地址（通过BIC自动获取）']
+
+}
+
+Table paypals {
+  paypal_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account varchar [note: '账户名称']
+  access_token varchar [note: 'API 访问 token']
+
+}
+
+Table stripes {
+  stripe_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account varchar [note: '账户名称']
+  access_token varchar [note: 'API 访问 token']
+
+}
+
+Table adyens {
+  adyen_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  account varchar [note: '账户名称']
+  access_token varchar [note: 'API 访问 token']
+
+}
+
+Table crypto_eth {
+  eth_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  wallet_address varchar [note: 'ETH 钱包地址']
+  token_address varchar [note: 'Token 地址']
+  state enum [note: 'Crypto 账户类型']
+
+}
+
+Table crypto_ton {
+  ton_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  wallet_address varchar [note: 'TON 钱包地址']
+  token_address varchar [note: 'Token 地址']
+  state enum [note: 'Crypto 账户类型']
+
+}
+
+Table crypto_bsc {
+  bsc_id varchar [primary key]
+  wallet_id varchar [note: '关联钱包ID']
+  wallet_address varchar [note: 'BSC 钱包地址']
+  token_address varchar [note: 'Token 地址']
+  state enum [note: 'Crypto 账户类型']
+
+}
+
+
+Table transactions {
+  tx_id varchar [primary key, note: '主识别token，16进制字符']
+  tx_state enum [note: '交易的状态 (pending, finished, cancelled, hiden, refunded)']
+  tx_method enum [note: '交易的方法 (direct_payment, escrow_payment, subscription_payment)']
+
+  // Transaction Information
+  created_by varchar [note: '主识别token，16进制字符']
+  tx_from varchar [note: '发送方ID，主识别token，16进制字符']
+  tx_to varchar [note: '接收方ID，主识别token，16进制字符']
+  created_at datetime [note: '交易创建时间']
+  created_method enum [note: '交易创建方法']
+  finished_at datetime [note: '交易完成的时间']
+  finished_method enum [note: '交易完成的方法']
+  updated_at datetime [note: '交易更新时间']
+  updated_method enum [note: '交易更新方法']
+
+  // Transaction Details
+  price float [note: '交易金额']
+  currency enum [note: '货币类型 (USD, EUR, CNY, etc.)']
+
+}
+
+Table related_transactions {
+  tx_id varchar [primary key, note: '主交易ID，16进制字符串']
+  related_tx_id varchar [note: '关联交易的ID，16进制字符串']
+  method enum [note: '关联交易的方式']
+}
+
+Table dependent_transactions {
+  tx_id varchar [primary key, note: '主交易ID，16进制字符串']
+  dependent_tx_id varchar [note: '交易依赖的ID，16进制字符串']
+  method enum [note: '交易依赖的方法']
+}
+
+Table orders {
+  order_id varchar [primary key, note: '订单ID，16进制字符串']
+  order_state enum(created, pending, finished, cancelled, refunded, hiden) [note: '订单的状态 ']
+  order_method enum(direct_payment, escrow_payment, subscription_payment) [note: '订单的支付方法 ']
+
+  // Referral Info
+  referrer_user_id varchar [note: '推荐者的ID，16进制字符串']
+  referrer_method enum [note: '使用什么方法被推荐']
+
+  // Order Info
+  created_by varchar [note: '订单创建者ID，16进制字符串']
+  order_from varchar [note: '订单发送方ID，16进制字符串']
+  order_to varchar [note: '订单接收方ID，16进制字符串']
+  created_at datetime [note: '订单创建时间']
+  created_method enum [note: '订单创建方法']
+  finished_at datetime [note: '订单完成的时间']
+  finished_method enum [note: '订单完成的时方法']
+  updated_at datetime [note: '订单更新时间']
+  updated_method enum [note: '订单更新方法']
+
+}
+
+Table order_details {
+  order_id varchar [primary key, note: '关联订单ID，16进制字符串']
+
+  // Transaction Info
+  tx_id varchar [note: '与订单关联的交易ID，16进制字符串']
+  tx_method enum [note: '与订单相关联的交易方法']
+
+  // Promotion Info
+  promotion_id varchar [note: '与订单关联的优惠ID，16进制字符串']
+  promotion_method enum(single_use, percentage_promotion, direct_discount_promotion) [note: '与订单相关联的优惠方法']
+  promotion_amount float [note: '优惠数值']
+  amount_state enum [note: '优惠数值的计算方法']
+
+  // Offer Info
+  offer_id varchar [note: '订单对应的offer，16进制字符串']
+  offer_option_id varchar [note: '订单对应的offer选项ID，16进制字符串']
+  offer_amount float [note: '订单对应的offer的数量']
+
+  // Escrow Info
+  escrow_updated_at datetime [note: '托管支付状态的更新时间']
+  escrow_updated_method enum [note: '托管支付状态的更新方法']
+  escrow_updated_by varchar [note: '托管支付状态由谁更新，16进制字符串']
+  escrow_end_at datetime [note: '托管支付的结束日期']
+  escrow_end_method enum [note: '托管支付的结束方法']
+  escrow_history_tx_ids varchar[] [note: '托管支付的交易历史记录']
+
+  // Subscription Info
+  subscription_interval timestamp [note: '订阅扣费间隔']
+  subscription_interval_start timestamp [note: '订阅扣费间隔的开始时间']
+  subscription_interval_end timestamp [note: '订阅扣费间隔的结束时间']
+  subscription_interval_max float [note: '订阅扣费在一个间隔内的最大值']
+  subscription_interval_paid float [note: '订阅扣费在当前间隔内已支付']
+  subscription_end_at datetime [note: '停止订阅的时间']
+  subscription_end_method enum [note: '停止订阅的原因']
+  subscription_history_tx_ids varchar[] [note: '订阅的交易历史记录']
+
+}
+
+Table promotions {
+  promotion_id varchar [primary key, note: '促销活动唯一标识']
+  promotion_type enum(single_promotion, percentage_promotion, direct_discount_promotion) [note: '促销类型 ']
+  promotion_value float [note: '促销金额或折扣百分比']
+  applied_to varchar [note: '应用的订单ID，16进制字符串']
+  amount_after_promotion float [note: '应用促销后的总金额']
+}
+
+Table reviews {
+  review_id varchar [primary key, note: '与订单关联的review，16进制字符串']
+  order_id varchar [note: '关联订单ID，16进制字符串']
+  offer_id varchar [note: '关联订单ID，16进制字符串']
+
+}Table indiapps {
+  indiapp_id varchar [primary key, note: 'Indiapp ID, 16进制字符串']
+  offer_id varchar [note: 'Related offer ID']
+  order_id varchar [note: 'Related order ID']
+}
+
+Table pots {
+  pot_id varchar [primary key, note: 'Pot ID, custom structure']
+  offer_id varchar [note: 'Related offer ID']
+  order_id varchar [note: 'Related order ID']
+}
+
