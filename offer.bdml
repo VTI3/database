@@ -68,6 +68,7 @@ Table options {
   created_method enum [note: '创建选项的方法']
   updated_at datetime [note: '选项更新的时间戳']
   updated_method enum [note: '更新选项的方法']
+  service_time time [note: '服务持续的时间']
   services varchar[] [note: '提供的服务列表']
 }
 
