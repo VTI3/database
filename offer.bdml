@@ -25,7 +25,6 @@ Table provide_to {
   ethnicity varchar[] [note: '目标种族列表']
   nationality varchar[] [note: '目标国家列表']
   languages json [note: '语言与等级的 JSON 数组，示例: [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]']
-  services varchar[] [note: '提供的服务列表']
 }
 
 Table location {
@@ -69,6 +68,7 @@ Table options {
   created_method enum [note: '创建选项的方法']
   updated_at datetime [note: '选项更新的时间戳']
   updated_method enum [note: '更新选项的方法']
+  services varchar[] [note: '提供的服务列表']
 }
 
 Table promotions {
