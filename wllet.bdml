@@ -120,6 +120,7 @@ Table crypto_bsc {
 
 Table transactions {
   tx_id varchar [primary key, note: '主识别token，16进制字符']
+  order_id varchar [note: '对应order ID']
   tx_state enum [note: '交易的状态 (pending, finished, cancelled, hiden, refunded)']
   tx_method enum [note: '交易的方法 (direct_payment, escrow_payment, subscription_payment)']
 
