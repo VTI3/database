@@ -93,6 +93,18 @@ Table settings {
   user_id varchar [note: '关联用户ID']
 }
 
+Table settings_indiapp {
+  user_id varchar [note: '关联用户ID']
+  indiapp_id varchar [note: '关联用户ID']
+  setting json [note: '对应类型的喜好']
+}
+
+Table preferences {
+  user_id varchar [note: '关联用户ID']
+  offer_type varchar [note: '对应offer类型']
+  preferences json [note: '对应类型的喜好']
+}
+
 Table personal {
   user_id varchar [note: '关联用户ID']
   gender varchar [note: '性别']
@@ -127,8 +139,8 @@ Table personal {
   body_shape enum [note: '体型']
   bra_size enum [note: '胸罩尺寸']
   plastic_surgery enum [note: '整容状况']
-  pubic_hair enum [note: '阴毛状况']
   tattoos enum [note: '纹身状况']
   piercings enum [note: '穿孔状况']  
 }
+
 
