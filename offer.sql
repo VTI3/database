@@ -64,7 +64,7 @@ CREATE TABLE options (
   related_offer_id VARCHAR(255) COMMENT 'ID of the related service',
   option_media JSON COMMENT 'Array of URLs for option media',
   price FLOAT COMMENT 'Price of the option',
-  currency ENUM('USD', 'EUR', 'CNY', 'JPY') COMMENT 'Currency type for the option price',
+  currency ENUM('USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'CNY', 'HKD', 'NZD', 'KRW', 'SGD', 'SEK', 'NOK', 'MXN', 'INR', 'RUB', 'ZAR', 'BRL', 'TRY', 'TWD', 'DKK', 'PLN', 'THB', 'IDR', 'HUF', 'CZK', 'ILS', 'MYR', 'PHP', 'PKR', 'CLP', 'AED', 'SAR', 'COP', 'EGP', 'VND', 'BDT', 'KWD', 'QAR', 'UAH', 'PEN', 'MAD', 'NGN', 'KZT', 'ARS', 'DZD', 'LKR', 'OMR', 'BHD') COMMENT 'Currency type for the option price',
   created_at DATETIME COMMENT 'Timestamp when the option was created',
   created_method ENUM('manual', 'automatic') COMMENT 'Method by which the option was created',
   updated_at DATETIME COMMENT 'Timestamp when the option was last updated',
