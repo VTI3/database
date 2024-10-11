@@ -9,19 +9,18 @@ CREATE TABLE wallet (
                  "ETB", "CDF", "MMK", "KES", "GHS", "NPR", "VES", "IQD", "TZS") COMMENT 'Default currency for accounting',
   last_withdrew_method ENUM('bank_transfer_withdrawal', 'credit_card_withdrawal', 'c2c_withdrawal', 'cryptocurrency_withdrawal', 'third_party_payment_withdrawal') COMMENT 'Last withdrawal method used',
   last_request_state ENUM('bank_transfer', 'credit_card', 'c2c_transfer', 'cryptocurrency', 'third_party_payment', 'invoice_bill_code_generation') COMMENT 'Last method used for incoming funds',
-  wallet_username VARCHAR(255) COMMENT 'Unique username for the wallet',
 );
 
-CREATE TAABLE balances(
+CREATE TABLE balances (
   balances_id VARCHAR(255) PRIMARY KEY,
   wallet_id VARCHAR(255) COMMENT 'Associated wallet ID',
   balance_usd FLOAT COMMENT 'USD balance - United States',
-  balance_eur FLOAT COMMENT 'EUR balance - European Union',
+  balance_eur FLOAT COMMENT 'EUR balance - Eurozone (19 countries)',
   balance_jpy FLOAT COMMENT 'JPY balance - Japan',
   balance_gbp FLOAT COMMENT 'GBP balance - United Kingdom',
   balance_aud FLOAT COMMENT 'AUD balance - Australia',
   balance_cad FLOAT COMMENT 'CAD balance - Canada',
-  balance_chf FLOAT COMMENT 'CHF balance - Switzerland',
+  balance_chf FLOAT COMMENT 'CHF balance - Switzerland & Liechtenstein',
   balance_cny FLOAT COMMENT 'CNY balance - China',
   balance_hkd FLOAT COMMENT 'HKD balance - Hong Kong',
   balance_nzd FLOAT COMMENT 'NZD balance - New Zealand',
@@ -66,7 +65,7 @@ CREATE TAABLE balances(
   balance_omr FLOAT COMMENT 'OMR balance - Oman',
   balance_bhd FLOAT COMMENT 'BHD balance - Bahrain',
   balance_coupon FLOAT COMMENT 'Coupon balance, can be used to offset platform fees'
-)
+);
   
 CREATE TABLE credit_cards (
   card_id VARCHAR(255) PRIMARY KEY,
