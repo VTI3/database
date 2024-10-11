@@ -8,7 +8,7 @@ CREATE TABLE wallet (
                  "UAH", "PEN", "MAD", "NGN", "KZT", "ARS", "DZD", "LKR", "OMR", "BHD", 
                  "ETB", "CDF", "MMK", "KES", "GHS", "NPR", "VES", "IQD", "TZS") COMMENT 'Default currency for accounting',
   last_withdrew_method ENUM('bank_transfer_withdrawal', 'credit_card_withdrawal', 'c2c_withdrawal', 'cryptocurrency_withdrawal', 'third_party_payment_withdrawal') COMMENT 'Last withdrawal method used',
-  last_request_state ENUM('bank_transfer', 'credit_card', 'c2c_transfer', 'cryptocurrency', 'third_party_payment', 'invoice_bill_code_generation') COMMENT 'Last method used for incoming funds',
+  last_request_state ENUM('bank_transfer', 'credit_card', 'c2c_transfer', 'cryptocurrency', 'third_party_payment', 'invoice_bill_code_generation') COMMENT 'Last method used for incoming funds'
 );
 
 CREATE TABLE balances (
