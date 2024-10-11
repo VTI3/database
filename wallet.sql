@@ -10,6 +10,11 @@ CREATE TABLE wallet (
   last_withdrew_method ENUM('bank_transfer_withdrawal', 'credit_card_withdrawal', 'c2c_withdrawal', 'cryptocurrency_withdrawal', 'third_party_payment_withdrawal') COMMENT 'Last withdrawal method used',
   last_request_state ENUM('bank_transfer', 'credit_card', 'c2c_transfer', 'cryptocurrency', 'third_party_payment', 'invoice_bill_code_generation') COMMENT 'Last method used for incoming funds',
   wallet_username VARCHAR(255) COMMENT 'Unique username for the wallet',
+);
+
+CREATE TAABLE balances(
+  balances_id VARCHAR(255) PRIMARY KEY,
+  wallet_id VARCHAR(255) COMMENT 'Associated wallet ID',
   balance_usd FLOAT COMMENT 'USD balance - United States',
   balance_eur FLOAT COMMENT 'EUR balance - European Union',
   balance_jpy FLOAT COMMENT 'JPY balance - Japan',
@@ -61,8 +66,8 @@ CREATE TABLE wallet (
   balance_omr FLOAT COMMENT 'OMR balance - Oman',
   balance_bhd FLOAT COMMENT 'BHD balance - Bahrain',
   balance_coupon FLOAT COMMENT 'Coupon balance, can be used to offset platform fees'
-);
-
+)
+  
 CREATE TABLE credit_cards (
   card_id VARCHAR(255) PRIMARY KEY,
   wallet_id VARCHAR(255) COMMENT 'Associated wallet ID',
