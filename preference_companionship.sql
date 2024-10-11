@@ -21,8 +21,5 @@ CREATE TABLE preference_companionship (
   ethnicity SET('asian', 'arab', 'black', 'caucasian', 'native_american', 'pacific_islander', 'hispanic', 'other') COMMENT 'Ethnic information, stored as a set',
   education JSON COMMENT 'Education level, refer to the personal table for values',
   profession JSON COMMENT 'Profession, refer to the personal table for values'
-  style JSON COMMENT 'Personal style types',
-  type JSON COMMENT 'Preferred personality types',
-  interests JSON COMMENT 'Interests stored as an array',
   NSFW_interest JSON COMMENT 'NSFW interests stored as an array',
 );
