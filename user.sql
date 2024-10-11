@@ -1,5 +1,6 @@
 CREATE TABLE user_accounts (
   user_id VARCHAR(255) PRIMARY KEY COMMENT 'Primary identifier token, hexadecimal characters',
+  manager_id VARCHAR(255) COMMENT 'The user id who manager this account',
   user_state ENUM('created', 'active', 'suspended', 'closed', 'banned', 'deleted', 'frozen', 'guest') COMMENT 'Account status',
   user_login_method JSON COMMENT 'Verified login methods; the first one is the default method (google, facebook, instagram, twitter, tiktok, apple_id, whatsapp, phone_number, email, telegram)',
   username VARCHAR(255) UNIQUE COMMENT 'Unique username identifier',
