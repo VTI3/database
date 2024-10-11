@@ -72,6 +72,8 @@ CREATE TABLE personal (
   profession ENUM('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession',
   languages JSON COMMENT 'Languages with proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
   sexual_orientation ENUM('heterosexual', 'homosexual', 'bisexual', 'queer') COMMENT 'Sexual orientation',
+  style JSON COMMENT 'Personal style types',
+  my_type JSON COMMENT 'Preferred personality types',
   hair_color ENUM('black', 'brown', 'blonde', 'red', 'gray_and_white', 'vivid') COMMENT 'Hair color',
   hair_style ENUM('shaved', 'buzz_cut', 'short_straight', 'short_curly', 'bob', 'medium_straight', 'medium_curly', 'ponytail', 'bun', 'long_straight', 'long_curly', 'braids', 'dreadlocks', 'afro') COMMENT 'Hair style',
   eye_color ENUM('brown', 'blue', 'green', 'hazel') COMMENT 'Eye color',
