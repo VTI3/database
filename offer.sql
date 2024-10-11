@@ -1,5 +1,7 @@
 CREATE TABLE offer (
   offer_id VARCHAR(255) PRIMARY KEY COMMENT 'Service ID, hexadecimal string',
+  user_id VARCHAR(255) COMMENT 'User ID, hexadecimal string',
+  manager_id VARCHAR(255) COMMENT 'Manager ID, hexadecimal string',
   type VARCHAR(255) COMMENT 'Primary service category',
   sub_type VARCHAR(255) COMMENT 'Secondary service category',
   tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',
