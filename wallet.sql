@@ -64,6 +64,15 @@ CREATE TABLE balances (
   balance_lkr FLOAT COMMENT 'LKR balance - Sri Lanka',
   balance_omr FLOAT COMMENT 'OMR balance - Oman',
   balance_bhd FLOAT COMMENT 'BHD balance - Bahrain',
+  balance_etb FLOAT COMMENT 'ETB balance - Ethiopia',
+  balance_cdf FLOAT COMMENT 'CDF balance - Democratic Republic of the Congo',
+  balance_mmk FLOAT COMMENT 'MMK balance - Myanmar',
+  balance_kes FLOAT COMMENT 'KES balance - Kenya',
+  balance_ghs FLOAT COMMENT 'GHS balance - Ghana',
+  balance_npr FLOAT COMMENT 'NPR balance - Nepal',
+  balance_ves FLOAT COMMENT 'VES balance - Venezuela',
+  balance_iqd FLOAT COMMENT 'IQD balance - Iraq',
+  balance_tzs FLOAT COMMENT 'TZS balance - Tanzania',
   balance_coupon FLOAT COMMENT 'Coupon balance, can be used to offset platform fees'
 );
   
