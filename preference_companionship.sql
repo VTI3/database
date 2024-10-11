@@ -20,6 +20,6 @@ CREATE TABLE preference_companionship (
   languages JSON COMMENT 'Languages and proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
   ethnicity SET('asian', 'arab', 'black', 'caucasian', 'native_american', 'pacific_islander', 'hispanic', 'other') COMMENT 'Ethnic information, stored as a set',
   education JSON COMMENT 'Education level, refer to the personal table for values',
-  profession JSON COMMENT 'Profession, refer to the personal table for values'
-  NSFW_interest JSON COMMENT 'NSFW interests stored as an array',
+  profession JSON COMMENT 'Profession, refer to the personal table for values',
+  NSFW_interest JSON COMMENT 'NSFW interests stored as an array'
 );
