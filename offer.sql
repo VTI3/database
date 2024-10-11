@@ -39,21 +39,21 @@ CREATE TABLE location (
 
 CREATE TABLE availability (
   offer_id VARCHAR(255) PRIMARY KEY COMMENT 'Service ID, hexadecimal string, uniquely identifies the service',
-  sun_time_start DATETIME COMMENT 'Service start time on Sunday',
-  sun_time_end DATETIME COMMENT 'Service end time on Sunday',
-  mon_time_start DATETIME COMMENT 'Service start time on Monday',
-  mon_time_end DATETIME COMMENT 'Service end time on Monday',
-  tue_time_start DATETIME COMMENT 'Service start time on Tuesday',
-  tue_time_end DATETIME COMMENT 'Service end time on Tuesday',
-  wed_time_start DATETIME COMMENT 'Service start time on Wednesday',
-  wed_time_end DATETIME COMMENT 'Service end time on Wednesday',
-  thu_time_start DATETIME COMMENT 'Service start time on Thursday',
-  thu_time_end DATETIME COMMENT 'Service end time on Thursday',
-  fri_time_start DATETIME COMMENT 'Service start time on Friday',
-  fri_time_end DATETIME COMMENT 'Service end time on Friday',
-  sat_time_start DATETIME COMMENT 'Service start time on Saturday',
-  sat_time_end DATETIME COMMENT 'Service end time on Saturday',
-  day_off DATE COMMENT 'Special holidays or custom dates where service is unavailable'
+  sun_time_start TIME COMMENT 'Service start time on Sunday',
+  sun_time_end TIME COMMENT 'Service end time on Sunday',
+  mon_time_start TIME COMMENT 'Service start time on Monday',
+  mon_time_end TIME COMMENT 'Service end time on Monday',
+  tue_time_start TIME COMMENT 'Service start time on Tuesday',
+  tue_time_end TIME COMMENT 'Service end time on Tuesday',
+  wed_time_start TIME COMMENT 'Service start time on Wednesday',
+  wed_time_end TIME COMMENT 'Service end time on Wednesday',
+  thu_time_start TIME COMMENT 'Service start time on Thursday',
+  thu_time_end TIME COMMENT 'Service end time on Thursday',
+  fri_time_start TIME COMMENT 'Service start time on Friday',
+  fri_time_end TIME COMMENT 'Service end time on Friday',
+  sat_time_start TIME COMMENT 'Service start time on Saturday',
+  sat_time_end TIME COMMENT 'Service end time on Saturday',
+  day_off JSON COMMENT 'Special holidays or custom dates where service is unavailable'
 );
 
 CREATE TABLE options (
