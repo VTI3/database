@@ -25,7 +25,7 @@ CREATE TABLE login_methods (
   twitter_id VARCHAR(255) COMMENT 'Twitter User ID',
   twitter_username VARCHAR(255) COMMENT 'Twitter username',
   apple_id VARCHAR(255) COMMENT 'Apple User ID',
-  whatsapp_phone_number VARCHAR(255) COMMENT 'WhatsApp phone number',
+  whatsapp_phone_number VARCHAR(255) COMMENT 'WhatsApp phone number',https://github.com/VTI3/database/blob/main/user.sql
   phone_verified BOOLEAN COMMENT 'Whether the phone number has been verified',
   region_number VARCHAR(10) COMMENT 'Phone number region code',
   phone_number VARCHAR(20) COMMENT 'Phone number',
@@ -61,7 +61,7 @@ CREATE TABLE preferences (
   user_id VARCHAR(255) COMMENT 'Associated user ID',
   offer_type JSON COMMENT 'Offer type stored in JSON format'
 );
-
+  
 CREATE TABLE personal (
   user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   gender ENUM('male', 'female', 'other') COMMENT 'Gender',
@@ -72,6 +72,7 @@ CREATE TABLE personal (
   profession ENUM('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession',
   languages JSON COMMENT 'Languages with proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
   sexual_orientation ENUM('heterosexual', 'homosexual', 'bisexual', 'queer') COMMENT 'Sexual orientation',
+  interest JSON COMMENT 'Interests stored as an array',
   style JSON COMMENT 'Personal style types',
   my_type JSON COMMENT 'Preferred personality types',
   hair_color ENUM('black', 'brown', 'blonde', 'red', 'gray_and_white', 'vivid') COMMENT 'Hair color',
