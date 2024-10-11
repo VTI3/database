@@ -37,7 +37,7 @@ CREATE TABLE login_methods (
 );
 
 CREATE TABLE subscriptions (
-  id VARCHAR(255) COMMENT 'ID of the subscriber',
+  id VARCHAR(255) PRIMARY KEY  COMMENT 'ID of the subscriber',
   subscriber_id VARCHAR(255) COMMENT 'ID of the subscriber',
   subscribed_id VARCHAR(255) COMMENT 'ID of the person being subscribed to',
   method SET('google', 'facebook', 'instagram', 'twitter', 'tiktok', 'apple_id', 'whatsapp', 'phone_number', 'email', 'telegram') COMMENT 'Platforms where the subscription exists ["instagram", "facebook"]',
@@ -45,7 +45,7 @@ CREATE TABLE subscriptions (
 );
 
 CREATE TABLE referral_infos (
-  id VARCHAR(255) COMMENT 'Associated user ID',
+  id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   referrer_id VARCHAR(255) COMMENT 'ID of the first referrer',
   referee_id VARCHAR(255) COMMENT 'User ID of the first referee, in hexadecimal format',
   method ENUM('event', 'messaging_app', 'social', 'email_invite', 'sms_invite', 'indi-app', 'import_provider') COMMENT 'Method used by the referrer to make the referral',
@@ -59,7 +59,7 @@ CREATE TABLE settings_indiapp (
 );
 
 CREATE TABLE preferences (
-  user_id VARCHAR(255) COMMENT 'Associated user ID',
+  user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   offer_type JSON COMMENT 'Offer type stored in JSON format'
 );
   
