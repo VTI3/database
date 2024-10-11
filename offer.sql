@@ -12,7 +12,7 @@ CREATE TABLE offer (
   updated_at DATETIME COMMENT 'Timestamp when the service was last updated',
   updated_method ENUM('manual', 'automatic') COMMENT 'Method by which the service was updated',
   trust_scores FLOAT COMMENT 'Trust score for the service',
-  options JSON COMMENT 'Various options for the service'
+  options JSON COMMENT 'Various option ID for the service'
 );
 
 CREATE TABLE provide_to (
