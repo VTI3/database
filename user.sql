@@ -15,7 +15,7 @@ CREATE TABLE user_accounts (
 );
 
 CREATE TABLE login_methods (
-  user_id VARCHAR(255) COMMENT 'Associated user ID',
+  user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   google_id VARCHAR(255) COMMENT 'Google User ID token',
   google_email VARCHAR(255) COMMENT 'Google email address',
   facebook_id VARCHAR(255) COMMENT 'Facebook User ID',
@@ -52,7 +52,7 @@ CREATE TABLE referral_infos (
 );
 
 CREATE TABLE settings_indiapp (
-  user_id VARCHAR(255) COMMENT 'Associated user ID',
+  user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   indiapp_id VARCHAR(255) COMMENT 'Associated IndiApp ID',
   setting JSON COMMENT 'Preferences stored in JSON format'
 );
@@ -63,7 +63,7 @@ CREATE TABLE preferences (
 );
 
 CREATE TABLE personal (
-  user_id VARCHAR(255) COMMENT 'Associated user ID',
+  user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   gender ENUM('male', 'female', 'other') COMMENT 'Gender',
   birth_day DATE COMMENT 'Birth date',
   nationality JSON COMMENT 'Nationalities stored as an array',
