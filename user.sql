@@ -2,7 +2,7 @@ CREATE TABLE user_accounts (
   user_id VARCHAR(255) PRIMARY KEY COMMENT 'Primary identifier token, hexadecimal characters',
   manager_id VARCHAR(255) COMMENT 'The user id who manager this account',
   user_state ENUM('created', 'active', 'suspended', 'closed', 'banned', 'deleted', 'frozen', 'guest') COMMENT 'Account status',
-  login_method JSON COMMENT 'Verified login methods; the first one is the default method (google, facebook, instagram, twitter, tiktok, apple_id, whatsapp, phone_number, email, telegram)',
+  user_login_method JSON COMMENT 'Verified login methods; the first one is the default method (google, facebook, instagram, twitter, tiktok, apple_id, whatsapp, phone_number, email, telegram)',
   username VARCHAR(255) UNIQUE COMMENT 'Unique username identifier',
   profile_picture VARCHAR(255) COMMENT 'URL of user profile picture',
   bio VARCHAR(255) COMMENT 'User biography',
@@ -26,7 +26,7 @@ CREATE TABLE login_methods (
   twitter_id VARCHAR(255) COMMENT 'Twitter User ID',
   twitter_username VARCHAR(255) COMMENT 'Twitter username',
   apple_id VARCHAR(255) COMMENT 'Apple User ID',
-  whatsapp_phone_number VARCHAR(255) COMMENT 'WhatsApp phone number',https://github.com/VTI3/database/blob/main/user.sql
+  whatsapp_phone_number VARCHAR(255) COMMENT 'WhatsApp phone number',
   phone_verified BOOLEAN COMMENT 'Whether the phone number has been verified',
   region_number VARCHAR(10) COMMENT 'Phone number region code',
   phone_number VARCHAR(20) COMMENT 'Phone number',
