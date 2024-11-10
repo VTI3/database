@@ -63,31 +63,3 @@ CREATE TABLE preferences (
   offer_type JSON COMMENT 'Offer type stored in JSON format'
 );
   
-CREATE TABLE personal (
-  user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
-  gender ENUM('male', 'female', 'other') COMMENT 'Gender',
-  birth_day DATE COMMENT 'Birth date',
-  nationality JSON COMMENT 'Nationalities stored as an array',
-  ethnicity SET('asian', 'arab', 'black', "white", 'south_asian', 'native_american', 'pacific_islander', 'hispanic', 'other') COMMENT 'Ethnic information, stored as a set',
-  education ENUM('none', 'primary', 'secondary', 'bachelor', 'master', 'doctorate') COMMENT 'Education level',
-  profession ENUM('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession',
-  languages JSON COMMENT 'Languages with proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
-  sexual_orientation ENUM('heterosexual', 'homosexual', 'bisexual', 'queer') COMMENT 'Sexual orientation',
-  interest JSON COMMENT 'Interests stored as an array',
-  style JSON COMMENT 'Personal style types',
-  my_type JSON COMMENT 'Preferred personality types',
-  hair_color ENUM('black', 'brown', 'blonde', 'red', 'gray_and_white', 'vivid') COMMENT 'Hair color',
-  hair_style ENUM('shaved', 'buzz_cut', 'short_straight', 'short_curly', 'bob', 'medium_straight', 'medium_curly', 'ponytail', 'bun', 'long_straight', 'long_curly', 'braids', 'dreadlocks', 'afro') COMMENT 'Hair style',
-  eye_color ENUM('brown', 'blue', 'green', 'hazel') COMMENT 'Eye color',
-  skin_color ENUM('pale', 'olive', 'brown', 'ebony') COMMENT 'Skin color',
-  height FLOAT COMMENT 'Height in meters',
-  weight FLOAT COMMENT 'Weight in kilograms',
-  bust FLOAT COMMENT 'Bust size in centimeters',
-  waist FLOAT COMMENT 'Waist size in centimeters',
-  hips FLOAT COMMENT 'Hip size in centimeters',
-  body_shape ENUM('petite', 'slim', 'average', 'curvy', 'athletic', 'plus_size') COMMENT 'Body shape',
-  bra_size ENUM('A', 'B', 'C', 'D', 'DD', 'E', 'F', 'G', 'H') COMMENT 'Bra size',
-  plastic_surgery ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Plastic surgery status',
-  tattoos ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Tattoo status',
-  piercings ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Piercing status'
-);
