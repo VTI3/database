@@ -108,7 +108,7 @@ CREATE TABLE personal (
   my_type JSON COMMENT 'Preferred personality types',
   hair_color ENUM('black', 'brown', 'blonde', 'red', 'gray_and_white', 'vivid') COMMENT 'Hair color',
   hair_style ENUM('shaved', 'buzz_cut', 'short_straight', 'short_curly', 'bob', 'medium_straight', 'medium_curly', 'ponytail', 'bun', 'long_straight', 'long_curly', 'braids', 'dreadlocks', 'afro') COMMENT 'Hair style',
-  eye_color ENUM('brown', 'blue', 'green', 'hazel') COMMENT 'Eye color',
+  eye_color ENUM('brown', 'blue', 'green', 'hazel', 'gray') COMMENT 'Eye color',
   skin_color ENUM('pale', 'olive', 'brown', 'ebony') COMMENT 'Skin color',
   height FLOAT COMMENT 'Height in meters',
   weight FLOAT COMMENT 'Weight in kilograms',
