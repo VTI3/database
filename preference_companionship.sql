@@ -21,5 +21,9 @@ CREATE TABLE preference_companionship (
   ethnicity SET('asian', 'arab', 'black', "white", 'south_asian', 'native_american', 'pacific_islander', 'hispanic', 'other', 'mixed')  COMMENT 'Ethnic information, stored as a set',
   education SET('none', 'primary', 'secondary', 'bachelor', 'master', 'doctorate') COMMENT 'Education level, refer to the personal table for values',
   profession SET('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession, refer to the personal table for values',
+  hair_color SET('black', 'brown', 'blonde', 'red', 'gray_and_white', 'vivid') COMMENT 'Hair color',
+  hair_style SET('shaved', 'buzz_cut', 'short_straight', 'short_curly', 'bob', 'medium_straight', 'medium_curly', 'ponytail', 'bun', 'long_straight', 'long_curly', 'braids', 'dreadlocks', 'afro') COMMENT 'Hair style',
+  eye_color SET('brown', 'blue', 'green', 'hazel', 'gray') COMMENT 'Eye color',
+  skin_color SET('pale', 'olive', 'brown', 'ebony') COMMENT 'Skin color',
   NSFW_interest JSON COMMENT 'NSFW interests stored as an array'
 );
