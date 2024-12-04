@@ -33,7 +33,9 @@ CREATE TABLE login_methods (
   email_verified BOOLEAN COMMENT 'Whether the email address has been verified',
   email_address VARCHAR(255) COMMENT 'Email address',
   telegram_handle VARCHAR(255) COMMENT 'Telegram username',
-  telegram_phone_number VARCHAR(20) COMMENT 'Phone number used for Telegram login'
+  telegram_phone_number VARCHAR(20) COMMENT 'Phone number used for Telegram login',
+  telegram_channel VARCHAR(255) COMMENT 'Telegram channel',
+  telegram_respond_bot VARCHAR(20) COMMENT 'Telegram respond bot ID'
 );
 
 CREATE TABLE subscriptions (
