@@ -69,6 +69,6 @@ CREATE TABLE offer_action (
  type VARCHAR(255) COMMENT 'Primary service category',
   sub_type VARCHAR(255) COMMENT 'Secondary service category',
   tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',
-  action ENUM('passed', 'liked', 'favorited', 'contacted', 'bought', 'reviewed', 'banned'，'refund') COMMENT 'How the user react to the offer', 
+  action ENUM('passed', 'liked', 'favorited', 'contacted', 'bought', 'reviewed', 'banned', 'refund') COMMENT 'How the user react to the offer', 
   action_at DATETIME COMMENT 'Action timestamp, used for sorting' 
 );
