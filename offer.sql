@@ -98,7 +98,7 @@ CREATE TABLE personal (
   gender ENUM('male', 'female', 'other') COMMENT 'Gender',
   birth_day DATE COMMENT 'Birth date',
   nationality JSON COMMENT 'Nationalities stored as an array',
-  ethnicity SET('asian', 'arab', 'black', "white", 'south_asian', 'native_american', 'pacific_islander', 'hispanic', 'other') COMMENT 'Ethnic information, stored as a set',
+  ethnicity SET('asian', 'arab', 'black', "white", 'south_asian', 'native_american', 'pacific_islander', 'hispanic', 'other','mixed') COMMENT 'Ethnic information, stored as a set',
   education ENUM('none', 'primary', 'secondary', 'bachelor', 'master', 'doctorate') COMMENT 'Education level',
   profession ENUM('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession',
   languages JSON COMMENT 'Languages with proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
