@@ -62,4 +62,13 @@ CREATE TABLE preferences (
   user_id VARCHAR(255) PRIMARY KEY COMMENT 'Associated user ID',
   offer_type JSON COMMENT 'Offer type stored in JSON format'
 );
-  
+
+CREATE TABLE offer_action ( 
+  user_id VARCHAR(255) COMMENT 'ID of the user', 
+  offer_id VARCHAR(255) COMMENT 'ID of the offer that the user acted to', 
+ type VARCHAR(255) COMMENT 'Primary service category',
+  sub_type VARCHAR(255) COMMENT 'Secondary service category',
+  tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',
+  action ENUM('passed', 'liked', 'favorited', 'contacted', 'bought', 'reviewed', 'banned') COMMENT 'How the user react to the offer', 
+  action_at DATETIME COMMENT 'Action timestamp, used for sorting' 
+);
