@@ -12,7 +12,7 @@ CREATE TABLE offer (
   claimed_at DATETIME COMMENT 'Timestamp when the service was claimed',
   claimed_method ENUM('by_user', 'by_provider') COMMENT 'Method by which the service was claimed',
   updated_at DATETIME COMMENT 'Timestamp when the service was last updated',
-  updated_method ENUM('manual', 'automatic') COMMENT 'Method by which the service was updated',
+  updated_method ENUM('by_vti3', 'by_indiapp', 'by_other', 'by_api', 'by_admin') COMMENT 'Method used for the last update',
   trust_scores FLOAT COMMENT 'Trust score for the service',
   options JSON COMMENT 'Various option ID for the service'
 );
@@ -70,7 +70,7 @@ CREATE TABLE options (
   created_at DATETIME COMMENT 'Timestamp when the option was created',
   created_method ENUM('manual', 'automatic') COMMENT 'Method by which the option was created',
   updated_at DATETIME COMMENT 'Timestamp when the option was last updated',
-  updated_method ENUM('manual', 'automatic') COMMENT 'Method by which the option was updated',
+  updated_method ENUM('by_vti3', 'by_indiapp', 'by_other', 'by_api', 'by_admin') COMMENT 'Method used for the last update',
   service_time TIME COMMENT 'Duration of the service',
   services JSON COMMENT 'List of services provided by the option'
 );
