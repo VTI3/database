@@ -65,5 +65,7 @@ jobs:
           # 将脚本和SQL文件复制到服务器并执行
           chmod +x sync_db.sh
           export SSHPASS=${{ secrets.SERVER_PASSWORD }}
+          # 先在服务器上创建目录
+          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "mkdir -p ~/db_sync"
           sshpass -e scp -o StrictHostKeyChecking=no -r ./*.sql sync_db.sh ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:~/db_sync/
           sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd ~/db_sync && ./sync_db.sh"
