@@ -40,7 +40,7 @@ jobs:
           #!/bin/bash
           
           # 删除所有表
-          mysql -u $DB_USER -p$DB_PASSWORD $DB_NAME -e "
+          mysql -u"$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" -e "
             SET FOREIGN_KEY_CHECKS = 0;
             SET GROUP_CONCAT_MAX_LEN=32768;
             SET @tables = NULL;
@@ -57,7 +57,7 @@ jobs:
           for sql_file in *.sql; do
             if [ -f "$sql_file" ]; then
               echo "Executing $sql_file..."
-              mysql -u $DB_USER -p$DB_PASSWORD $DB_NAME < "$sql_file"
+              mysql -u"$DB_USER" -p"$DB_PASSWORD" "$DB_NAME" < "$sql_file"
             fi
           done
           EOF
