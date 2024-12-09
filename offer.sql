@@ -27,7 +27,7 @@ CREATE TABLE provide_to (
   languages JSON COMMENT 'Languages and proficiency levels in JSON format, e.g., [{"language": "English", "level": "Fluent"}, {"language": "Spanish", "level": "Beginner"}]',
   ethnicity SET('asian', 'arab', 'black', "white", 'south_asian', 'native_american', 'pacific_islander', 'hispanic', 'other','mixed') COMMENT 'Ethnic information, stored as a set',
   education SET('none', 'primary', 'secondary', 'bachelor', 'master', 'doctorate') COMMENT 'Education level, refer to the personal table for values',
-  profession SET('healthcare', 'education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession, refer to the personal table for values'
+  profession SET('healthcare', 'student','education', 'engineering', 'business', 'arts', 'legal', 'marketing', 'it', 'public_service', 'sales', 'hospitality', 'fashion', 'transportation', 'customer_service', 'finance', 'construction', 'manufacturing', 'KOL_media', 'research', 'office_work', 'operations', 'logistics', 'public_relations', 'consulting', 'other') COMMENT 'Profession, refer to the personal table for values'
 );
 
 CREATE TABLE location (
@@ -36,7 +36,7 @@ CREATE TABLE location (
   coordinates POINT COMMENT 'Geographic coordinates where the service is available',
   on_site BOOLEAN COMMENT 'Indicates if on-site service is available',
   max_distance FLOAT COMMENT 'Maximum service distance in kilometers',
-  local_type ENUM('apartment', 'house', 'office', 'outdoor') COMMENT 'Type of residence for on-site services'
+  local_type ENUM('apartment', 'house', 'hotel', 'workshop', 'service apartment', 'office', 'outdoor') COMMENT 'Type of residence for on-site services'
 );
 
 CREATE TABLE availability (
@@ -116,7 +116,7 @@ CREATE TABLE personal (
   waist FLOAT COMMENT 'Waist size in centimeters',
   hips FLOAT COMMENT 'Hip size in centimeters',
   body_shape ENUM('petite', 'slim', 'average', 'curvy', 'athletic', 'plus_size') COMMENT 'Body shape',
-  bra_size ENUM('A', 'B', 'C', 'D', 'DD', 'E', 'F', 'G', 'H') COMMENT 'Bra size',
+  bra_size ENUM('A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G', 'H') COMMENT 'Bra size',
   plastic_surgery ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Plastic surgery status',
   tattoos ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Tattoo status',
   piercings ENUM('none', 'mild', 'moderate', 'extensive') COMMENT 'Piercing status'
