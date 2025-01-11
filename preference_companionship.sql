@@ -29,3 +29,22 @@ CREATE TABLE preference_companionship (
   skin_color SET('pale', 'olive', 'brown', 'ebony') COMMENT 'Skin color',
   NSFW_interest JSON COMMENT 'NSFW interests stored as an array'
 );
+
+CREATE TABLE indiapp_info (
+  indiapp_id VARCHAR(255) PRIMARY KEY COMMENT 'Primary identifier token, hexadecimal characters',
+  type VARCHAR(255) COMMENT 'Primary service category',
+  sub_type VARCHAR(255) COMMENT 'Secondary service category',
+  tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',  
+  description TEXT COMMENT 'Detailed description of the IndiApp',
+  icon_url VARCHAR(255) COMMENT 'URL of the IndiApp icon',
+  website_url VARCHAR(255) COMMENT 'Official website URL of the IndiApp',
+  version VARCHAR(50) COMMENT 'Current version of the IndiApp',
+  developer_user_id VARCHAR(255) COMMENT 'Unique identifier for the developer or company',
+  privacy_policy_url VARCHAR(255) COMMENT 'URL to the privacy policy',
+  terms_of_service_url VARCHAR(255) COMMENT 'URL to the terms of service',
+  platform SET('iOS', 'Android', 'Web', 'Windows', 'Mac', 'Linux') COMMENT 'Platforms the IndiApp is available on',
+  supported_languages JSON COMMENT 'JSON array of supported languages, e.g., ["English", "Spanish", "French"]',
+  tags JSON COMMENT 'JSON array of tags associated with the IndiApp',
+  is_active BOOLEAN COMMENT 'Indicates if the IndiApp is currently active',
+  minimum_age INT COMMENT 'Minimum age required to use the IndiApp'
+);
