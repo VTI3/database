@@ -32,6 +32,7 @@ CREATE TABLE preference_companionship (
 
 CREATE TABLE indiapp_info (
   indiapp_id VARCHAR(255) PRIMARY KEY COMMENT 'Primary identifier token, hexadecimal characters',
+  client_secret VARCHAR(255) COMMENT 'OAuth client secret for application authentication',
   type VARCHAR(255) COMMENT 'Primary service category',
   sub_type VARCHAR(255) COMMENT 'Secondary service category',
   tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',  
@@ -47,4 +48,25 @@ CREATE TABLE indiapp_info (
   tags JSON COMMENT 'JSON array of tags associated with the IndiApp',
   is_active BOOLEAN COMMENT 'Indicates if the IndiApp is currently active',
   minimum_age INT COMMENT 'Minimum age required to use the IndiApp'
+  redirect_uri VARCHAR(255) COMMENT 'Callback URL after successful authorization',
+  requested_scopes JSON COMMENT 'List of permission scopes requested by the application',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation timestamp',
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update timestamp'
 );
+
+CREATE INDEX idx_oauth_applications_client_id ON oauth_applications(client_id);
+
+-- Create OAuth authorizations table
+CREATE TABLE oauth_authorizations (
+  id VARCHAR(255) PRIMARY KEY COMMENT 'Primary key',
+  user_id VARCHAR(255) COMMENT 'ID of the user granting authorization',
+  indiapp_id VARCHAR(255) COMMENT 'OAuth client ID reference to oauth_applications',
+  authorized_scopes JSON COMMENT 'List of permission scopes granted by the user',
+  authorization_code VARCHAR(255) COMMENT 'Temporary code used for OAuth authorization code flow',
+  code_expires_at DATETIME COMMENT 'Expiration timestamp for the authorization code',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation timestamp',
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update timestamp'
+);
+
+CREATE INDEX idx_oauth_authorizations_user_client ON oauth_authorizations(user_id, indiapp_id);
+CREATE INDEX idx_oauth_authorizations_code ON oauth_authorizations(authorization_code);
