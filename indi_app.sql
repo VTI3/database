@@ -54,8 +54,6 @@ CREATE TABLE indiapp_info (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update timestamp'
 );
 
-CREATE INDEX idx_oauth_applications_client_id ON oauth_applications(client_id);
-
 -- Create OAuth authorizations table
 CREATE TABLE oauth_authorizations (
   id VARCHAR(255) PRIMARY KEY COMMENT 'Primary key',
