@@ -73,31 +73,4 @@ CREATE TABLE offer_action (
   action_at DATETIME COMMENT 'Action timestamp, used for sorting' 
 );
 
--- Create OAuth applications table
-CREATE TABLE oauth_applications (
-  id VARCHAR(255) PRIMARY KEY COMMENT 'Primary key',
-  client_id VARCHAR(255) UNIQUE COMMENT 'OAuth client ID, unique identifier for the application',
-  client_secret VARCHAR(255) COMMENT 'OAuth client secret for application authentication',
-  app_name VARCHAR(255) COMMENT 'Name of the OAuth application',
-  redirect_uri VARCHAR(255) COMMENT 'Callback URL after successful authorization',
-  requested_scopes JSON COMMENT 'List of permission scopes requested by the application',
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation timestamp',
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update timestamp'
-);
 
-CREATE INDEX idx_oauth_applications_client_id ON oauth_applications(client_id);
-
--- Create OAuth authorizations table
-CREATE TABLE oauth_authorizations (
-  id VARCHAR(255) PRIMARY KEY COMMENT 'Primary key',
-  user_id VARCHAR(255) COMMENT 'ID of the user granting authorization',
-  client_id VARCHAR(255) COMMENT 'OAuth client ID reference to oauth_applications',
-  authorized_scopes JSON COMMENT 'List of permission scopes granted by the user',
-  authorization_code VARCHAR(255) COMMENT 'Temporary code used for OAuth authorization code flow',
-  code_expires_at DATETIME COMMENT 'Expiration timestamp for the authorization code',
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation timestamp',
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update timestamp'
-);
-
-CREATE INDEX idx_oauth_authorizations_user_client ON oauth_authorizations(user_id, client_id);
-CREATE INDEX idx_oauth_authorizations_code ON oauth_authorizations(authorization_code);
