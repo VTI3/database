@@ -47,7 +47,7 @@ CREATE TABLE indiapp_info (
   supported_languages JSON COMMENT 'JSON array of supported languages, e.g., ["English", "Spanish", "French"]',
   tags JSON COMMENT 'JSON array of tags associated with the IndiApp',
   is_active BOOLEAN COMMENT 'Indicates if the IndiApp is currently active',
-  minimum_age INT COMMENT 'Minimum age required to use the IndiApp'
+  minimum_age INT COMMENT 'Minimum age required to use the IndiApp',
   redirect_uri VARCHAR(255) COMMENT 'Callback URL after successful authorization',
   requested_scopes JSON COMMENT 'List of permission scopes requested by the application',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation timestamp',
