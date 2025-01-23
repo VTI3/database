@@ -66,11 +66,22 @@ CREATE TABLE preferences (
 CREATE TABLE offer_action ( 
   user_id VARCHAR(255) COMMENT 'ID of the user', 
   offer_id VARCHAR(255) COMMENT 'ID of the offer that the user acted to', 
- type VARCHAR(255) COMMENT 'Primary service category',
+  type VARCHAR(255) COMMENT 'Primary service category',
   sub_type VARCHAR(255) COMMENT 'Secondary service category',
   tertiary_type VARCHAR(255) COMMENT 'Tertiary service category',
   action ENUM('passed', 'liked', 'favorited', 'contacted', 'bought', 'reviewed', 'banned', 'refund') COMMENT 'How the user react to the offer', 
   action_at DATETIME COMMENT 'Action timestamp, used for sorting' 
 );
 
-
+CREATE TABLE personal_access_tokens (
+  id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary Key ID',
+  tokenable_type VARCHAR(255) COMMENT 'The type of model the token belongs to',
+  tokenable_id VARCHAR(27) COMMENT 'The ID of the model the token belongs to',
+  name VARCHAR(255) COMMENT 'Name of the token',
+  token VARCHAR(64) UNIQUE COMMENT 'Unique hashed token value',
+  abilities VARCHAR(255) NULL COMMENT 'Token permissions and abilities',
+  last_used_at DATETIME COMMENT 'Last time the token was used',
+  expires_at DATETIME NULL COMMENT 'Token expiration datetime',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation datetime',
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Record last update datetime'
+);
