@@ -76,7 +76,7 @@ CREATE TABLE offer_action (
 CREATE TABLE personal_access_tokens (
   id VARCHAR(255) PRIMARY KEY COMMENT 'Primary Key ID',
   tokenable_type VARCHAR(255) COMMENT 'The type of model the token belongs to',
-  tokenable_id VARCHAR(27) COMMENT 'The ID of the model the token belongs to',
+  tokenable_id VARCHAR(255) COMMENT 'The ID of the model the token belongs to',
   name VARCHAR(255) COMMENT 'Name of the token',
   token VARCHAR(64) UNIQUE COMMENT 'Unique hashed token value',
   abilities VARCHAR(255) NULL COMMENT 'Token permissions and abilities',
