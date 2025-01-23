@@ -74,7 +74,7 @@ CREATE TABLE offer_action (
 );
 
 CREATE TABLE personal_access_tokens (
-  id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary Key ID',
+  id VARCHAR(255) PRIMARY KEY COMMENT 'Primary Key ID',
   tokenable_type VARCHAR(255) COMMENT 'The type of model the token belongs to',
   tokenable_id VARCHAR(27) COMMENT 'The ID of the model the token belongs to',
   name VARCHAR(255) COMMENT 'Name of the token',
